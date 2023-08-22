@@ -61,6 +61,18 @@ $BODY$
     BEFORE INSERT OR UPDATE ON "users_table"
     FOR EACH ROW 
     EXECUTE PROCEDURE mytrigger();
+================================================================================================================================
+TEST NOW
+  
+INSERT INTO nir.users_table
+(id, first_name, last_name, "password", username)
+VALUES(13, 'BHUSHAN', 'PATIL', '12345', 'BHUSHAN123');
+
+
+UPDATE nir.users_table
+SET first_name='BHUSHAN123', last_name='PATIL', "password"='12345', username='BHUSHAN123'
+WHERE id=12;
+
 
 ================================================================================================================================
 					Thanks for looking out
