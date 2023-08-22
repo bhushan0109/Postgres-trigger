@@ -27,7 +27,7 @@ CREATE TABLE nir.users_table_temp (
 	CONSTRAINT users_table_temp_pkey PRIMARY KEY (id)
 );
 =========================================================================
-3) FUCTION IS CREATED
+3) FUNCTION IS CREATED
 
 CREATE OR REPLACE FUNCTION mytrigger()
   RETURNS trigger AS
@@ -56,13 +56,14 @@ $BODY$
   LANGUAGE plpgsql VOLATILE
 
   ==============================================================================================================================
-4) TRIGER IS CREATED
+4) TRIGGER IS CREATED
   CREATE TRIGGER mytrigger
     BEFORE INSERT OR UPDATE ON "users_table"
     FOR EACH ROW 
     EXECUTE PROCEDURE mytrigger();
 ================================================================================================================================
-TEST NOW
+5) final TEST NOW and check both tables what happened if you insert on parent table
+automatic reflect on temp (child table)
   
 INSERT INTO nir.users_table
 (id, first_name, last_name, "password", username)
